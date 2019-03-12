@@ -5,9 +5,9 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 module.exports.dbInitialize = async () => {
-  // await sleep(5000);
-  console.log(process.env);
+  await sleep(5000);
   let client = await pgPool.connect().catch();
+  console.log('connected to db');
   await client.query(
     `CREATE TABLE IF NOT EXISTS "products" (
       "productId"  SERIAL ,

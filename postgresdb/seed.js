@@ -20,8 +20,11 @@ const seed = async () => {
       FROM '/data/db/data.csv' WITH (FORMAT csv);`
     );
 
-    fs.unlink(path.resolve(__dirname, './data.csv'), () => {});
+    fs.unlink(path.resolve(__dirname, './data.csv'), () => {
+      process.exit();
+    });
     console.log('seeding complete, deleting csv');
+    process.exit();
   }
 };
 
