@@ -4,4 +4,4 @@ COPY package*.json ./
 RUN npm install
 COPY . .
 
-CMD tail -f /dev/null
+CMD ["npm", "run","seed-postgres"]
