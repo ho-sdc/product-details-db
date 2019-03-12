@@ -1,0 +1,18 @@
+version: '3'
+services:
+  app:
+    container_name: seed-product-details
+    build: .
+    volumes:
+      - ./postgresdb:/data/db
+    env_file: .env
+    depends_on:
+      - postgres
+  postgres:
+    container_name: db-product-details
+    image: postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./postgresdb:/data/db
+    env_file: db.env
